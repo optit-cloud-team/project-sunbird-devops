@@ -43,7 +43,7 @@ seed_provider:
           {% if groups['cassandra'] | length > 1 %}
           - seeds: "{{groups['cassandra'][:2]|join(',')}}"
           {% else %}
-          - seeds: "{{{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}}"
+          - seeds: "{{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}}"
           {% endif %}
 concurrent_reads: 32
 concurrent_writes: 32
