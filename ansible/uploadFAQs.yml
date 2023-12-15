@@ -39,6 +39,7 @@
       aws_default_region: "{{ cloud_public_storage_region }}"
       aws_access_key_id: "{{ cloud_public_storage_accountname }}"
       aws_secret_access_key: "{{ cloud_public_storage_secret }}"
+      aws_enpoint_url: "{{ cloud_storage_url}}"
       local_file_or_folder_path: "{{ playbook_dir }}/../utils/{{ item }}"
       s3_path: ""
     with_items:
@@ -104,6 +105,7 @@
       aws_default_region: "{{ cloud_public_storage_region }}"
       aws_access_key_id: "{{ cloud_public_storage_accountname }}"
       aws_secret_access_key: "{{ cloud_public_storage_secret }}"
+      aws_enpoint_url: "{{ cloud_storage_url}}"
       local_file_or_folder_path: "{{ playbook_dir }}/../utils/{{ item }}"
       s3_path: ""
     with_items:
