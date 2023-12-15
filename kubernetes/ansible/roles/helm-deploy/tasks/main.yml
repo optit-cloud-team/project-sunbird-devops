@@ -2,11 +2,11 @@
 # There is no native helm way to do this. So it's
 # kind of a workaround
 - name: getting kube dns service name
-  shell: kubectl get services --namespace kube-system | grep dns | awk '{print $1}'
+  shell: kubectl get services --namespace kube-system | grep -E '(kube-dns|coredns)' | awk '{print $1}' | head -n1
   register: kube_dns_service_name
 
 - name: getting kube dns ip
-  shell: kubectl get service --namespace kube-system {{ kube_dns_service_name.stdout}} -o jsonpath="{.spec.clusterIP}"
+  shell: kubectl get service --namespace kube-system {{ kube_dns_service_name.stdout }} -o jsonpath="{.spec.clusterIP}"
   register: kube_dns_ip
 
 - name: setting variable
